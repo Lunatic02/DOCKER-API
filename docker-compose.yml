@@ -2,16 +2,14 @@ version: '3'
 
 services:
   db-postgres-evento:
-    image: postgres:alpine
+    image: bitnami/postgresql
     ports:
       - "5432:5432"
     container_name: "db-postgres-evento"
-    restart: always
     volumes:
       - ./banco-de-dados-evento:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: pguser
-      POSTGRES_PASSWORD: password
+      POSTGRESQL_USERNAME: pguser
+      POSTGRESQL_PASSWORD: password
+      POSTGRESQL_DATABASE: ignitenode03
 
-volumes:
-  banco-de-dados-evento:
